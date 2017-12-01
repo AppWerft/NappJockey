@@ -97,6 +97,7 @@ public abstract class ForwardingWebViewClient extends WebViewClient {
 	@Override
 	public void onReceivedSslError(WebView view, SslErrorHandler handler,
 			SslError error) {
+		handler.proceed(); // for ignoring
 		if (hasDelegate())
 			delegate().onReceivedSslError(view, handler, error);
 		else
