@@ -4,6 +4,7 @@ import java.util.Map;
 
 import android.webkit.JsResult;
 import android.widget.Toast;
+import android.os.Build ; 
 
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.titanium.TiC;
@@ -19,6 +20,7 @@ import com.jockeyjs.JockeyImpl;
 
 import android.util.Log;
 import android.webkit.WebView;
+import android.webkit.CookieManager;
 
 public class DkNappJockeyWebView extends TiUIWebView  {
 
@@ -52,6 +54,7 @@ public class DkNappJockeyWebView extends TiUIWebView  {
 				//Log.d(TAG, "page finished loading!");
 				
 				TiUIWebView webview = DkNappJockeyWebView.this;
+				
 				
 				TiViewProxy proxy = webview.getProxy();
 				

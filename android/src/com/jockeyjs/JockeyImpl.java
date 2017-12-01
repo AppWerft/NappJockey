@@ -27,8 +27,11 @@ import java.util.Map;
 
 import android.annotation.SuppressLint;
 import android.os.Handler;
+import android.os.Build;
+
 import android.util.SparseArray;
 import android.webkit.WebView;
+import android.webkit.CookieManager;
 import android.webkit.WebViewClient;
 
 import com.jockeyjs.JockeyHandler.OnCompletedListener;
@@ -146,6 +149,12 @@ public abstract class JockeyImpl implements Jockey {
 	@Override
 	public void configure(WebView webView) {
 		webView.getSettings().setJavaScriptEnabled(true);
+		if(Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+	       // Log.d("TiJockey","SDk version above KK so forcibaly enabling ThirdPartyCookies");
+	        CookieManager.getInstance().setAcceptThirdPartyCookies(webView,true);
+	    }
+		
+		
 		webView.setWebViewClient(this.getWebViewClient());
 	}
 
